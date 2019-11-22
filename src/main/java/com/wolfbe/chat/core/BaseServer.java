@@ -36,6 +36,7 @@ public abstract class BaseServer implements Server {
                 return new Thread(r, "DEFAULTEVENTLOOPGROUP_" + index.incrementAndGet());
             }
         });
+
         bossGroup = new NioEventLoopGroup(Runtime.getRuntime().availableProcessors(), new ThreadFactory() {
             private AtomicInteger index = new AtomicInteger(0);
 
@@ -44,6 +45,7 @@ public abstract class BaseServer implements Server {
                 return new Thread(r, "BOSS_" + index.incrementAndGet());
             }
         });
+
         workGroup = new NioEventLoopGroup(Runtime.getRuntime().availableProcessors() * 10, new ThreadFactory() {
             private AtomicInteger index = new AtomicInteger(0);
 

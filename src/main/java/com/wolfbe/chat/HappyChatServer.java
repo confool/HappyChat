@@ -40,7 +40,6 @@ public class HappyChatServer extends BaseServer {
                 .option(ChannelOption.SO_BACKLOG, 1024)
                 .localAddress(new InetSocketAddress(port))
                 .childHandler(new ChannelInitializer<SocketChannel>() {
-
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(defLoopGroup,

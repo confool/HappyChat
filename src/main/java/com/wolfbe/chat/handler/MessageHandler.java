@@ -18,8 +18,7 @@ public class MessageHandler extends SimpleChannelInboundHandler<TextWebSocketFra
     private static final Logger logger = LoggerFactory.getLogger(MessageHandler.class);
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame frame)
-            throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame frame) throws Exception {
         UserInfo userInfo = UserInfoManager.getUserInfo(ctx.channel());
         if (userInfo != null && userInfo.isAuth()) {
             JSONObject json = JSONObject.parseObject(frame.text());

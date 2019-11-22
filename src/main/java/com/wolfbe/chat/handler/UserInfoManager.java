@@ -27,6 +27,7 @@ public class UserInfoManager {
     private static ReentrantReadWriteLock rwLock = new ReentrantReadWriteLock(true);
 
     private static ConcurrentMap<Channel, UserInfo> userInfos = new ConcurrentHashMap<>();
+
     private static AtomicInteger userCount = new AtomicInteger(0);
 
     public static void addChannel(Channel channel) {
@@ -164,7 +165,6 @@ public class UserInfoManager {
             }
         }
     }
-
 
     public static UserInfo getUserInfo(Channel channel) {
         return userInfos.get(channel);
